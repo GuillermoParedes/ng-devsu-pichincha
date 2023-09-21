@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SchemaProduct } from '../product.schema';
 import { ProductService } from '../product.service';
 import { IdValidator } from '../id-validator.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new',
@@ -13,7 +14,7 @@ export class NewComponent implements OnInit {
   returnToBack: string = '/'
   schemaForm = SchemaProduct;
 
-  constructor(private readonly idValidator: IdValidator, private readonly service: ProductService) {}
+  constructor(private readonly idValidator: IdValidator, private readonly service: ProductService, private readonly router: Router) {}
 
   ngOnInit(): void {
     this.schemaForm = this.schemaForm.map((item: any) => {
@@ -33,6 +34,7 @@ export class NewComponent implements OnInit {
       date_revision: data.dateRevision,
     }).subscribe(response => {
       console.log('response', response)
+      this.router.navigate(['/']);
     })
   }
 }
