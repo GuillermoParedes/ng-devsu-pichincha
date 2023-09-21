@@ -1,0 +1,13 @@
+<form [formGroup]="formSchema" (ngSubmit)="onSave()" >
+      <div class="container-form__body">
+        <ng-container *ngFor="let item of schema">
+          <codevs-input [form]="formSchema" [formName]="item.property" [label]="item.label" [type]="item.type"></codevs-input>
+        </ng-container>
+      </div>
+      <div class="container-form__actions">
+        <codevs-button [label]="'Reset'"  (click)="resetForm()" className="bg-secondary" ></codevs-button>
+        <codevs-button [label]="'Send'" [type]="'submit'"  className="bg-primary text-white" [disabled]="!formSchema.valid"></codevs-button>
+      </div>
+  </form>
+  
+  

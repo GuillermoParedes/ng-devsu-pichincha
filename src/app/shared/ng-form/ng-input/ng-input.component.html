@@ -1,0 +1,6 @@
+<div class="input" [class.input--error]="isInvalidField" [class.input--disabled]="disabled" [formGroup]="form">
+    <p class="input__label">{{ label }}</p>
+    <input [formControlName]="formName" [type]="type" [placeholder]="placeholder" />
+    <p class="input__hint">{{ getErrorMessage }}</p>
+  </div>
+  

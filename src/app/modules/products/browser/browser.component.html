@@ -1,0 +1,15 @@
+
+<div class="product--browser">
+
+    <div class="product--browser__action">
+        <input #searchQuery type="text" placeholder="Search by name" (input)="onSearchUpdated(searchQuery.value)"/>
+
+        <codevs-button label="New" className="bg-secondary" (click)="handleEvent('new')"></codevs-button>
+    </div>
+    <div class="product--browser__content">
+        <codevs-table [schema]="schemaTable" [data]="data" (handleEvent)="handleEventAction($event)"></codevs-table>
+    </div>
+
+</div>
+
+

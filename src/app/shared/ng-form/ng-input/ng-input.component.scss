@@ -1,0 +1,55 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    input {
+      padding: 0.7rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 0.3rem;
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+  
+      &:focus {
+        border-color: #333;
+      }
+    }
+    &__label {
+      margin-bottom: 0.5rem;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+    &__hint {
+      margin-top: 0.4rem;
+      font-weight: 900;
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+    $input: &;
+  
+    &--error {
+      input {
+        border-color: red;
+        &:focus {
+          border-color: red;
+        }
+      }
+      #{$input}__hint {
+        color: red;
+        opacity: 1;
+      }
+    }
+    &--disabled {
+      #{$input}__label {
+        color: #ccc;
+      }
+      input {
+        pointer-events: none;
+        cursor: not-allowed;
+        background-color: #eee;
+        border-color: #ddd;
+        &:focus {
+          border-color: #ddd;
+        }
+      }
+    }
+  }

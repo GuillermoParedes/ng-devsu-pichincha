@@ -1,0 +1,92 @@
+.ngtable {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  position: relative;
+
+  &__content {
+    overflow-x: auto;
+  }
+  .table {
+    width: 100%;
+    min-width: 50rem;
+    &__header {
+      background: #f9fafc;
+      display: flex;
+      justify-content: space-around;
+      .column {
+        display: inline-flex;
+        text-align: left;
+        padding: 1rem 0.5rem;
+        font-weight: 900;
+        font-size: 0.9rem;
+        color: #333;
+
+        &:first-child,
+        &:last-child {
+          text-align: center;
+        }
+      }
+    }
+    &__body {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #dbdbdb;
+      .column {
+        display: inline-flex;
+        text-align: left;
+        padding: 1rem 0.5rem;
+        font-size: 0.9rem;
+        color: #333;
+
+        img {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          margin: auto;
+        }
+      }
+      
+    }
+    &__actions {
+      button {
+        background-color: transparent;
+        border: none;
+
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &--pagination {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #dbdbdb;
+
+    .arrows {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      select {
+        padding: 0.5rem;
+        border: 1px solid #dbdbdb;
+        border-radius: 0.5rem;
+        outline: none;
+        cursor: pointer;
+      }
+      &__buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+  
+  }
+}

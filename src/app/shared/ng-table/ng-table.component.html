@@ -1,0 +1,55 @@
+ <div class="ngtable">
+    <div class="ngtable__content">
+      <div class="table">
+        <div class="row table__header">
+          <div class="column justify-content-center " *ngFor="let item of schema" [ngClass]="{'d-none' : item.hidden }"> {{ item.label }}</div>
+        </div>
+        <div class="row table__body" *ngFor="let item of pages" >
+          <div class="column align-items-center " *ngFor="let ischema of schema" [ngClass]="{'d-none' : ischema.hidden, 'justify-content-center': ischema.type == 'image' }">
+            <div [ngSwitch]="ischema.type">
+              <div *ngSwitchCase="'image'">
+                <img class="logo" [src]="item[ischema.property]" (error)="item[ischema.property] = 'assets/no-image.webp'" alt="Logo">
+              </div>
+              <div *ngSwitchCase="'date'">
+                <p>{{ item[ischema.property] | date: 'MM/yy/yyyy'}}</p>
+              </div>
+              <div *ngSwitchDefault>
+                <p>{{ item[ischema.property] }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center table__actions ">
+            <button class="button button--rounded" (click)="handleEventAction(item, 'edit')">
+              <img style="width: 20px;" src="assets/images/edit.svg" alt="edit">
+            </button>
+            <button  class="button button--rounded" (click)="handleEventAction(item, 'remove')">
+              <img style="width: 20px;" src="assets/images/delete.svg" alt="delete">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ngtable--pagination">
+      <div class="total">
+        {{ data.length }} Registers
+      </div>
+  
+      <div class="arrows">
+        <select class="arrows--items" aria-label="Producto por página"  [(ngModel)]="limit" (change)="generatePage()">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+        </select>
+        <div class="product-table__pagination__arrows__buttons">
+          <button class="button button--rounded"  [disabled]="currentPage === 1" (click)="backPage()">
+            <img src="assets/images/chevron-left.svg" alt="backPage">
+          </button>
+          <button class="button button--rounded"    (click)="nextPage()">
+            <img src="assets/images/chevron-right.svg" alt="nextPage">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+   

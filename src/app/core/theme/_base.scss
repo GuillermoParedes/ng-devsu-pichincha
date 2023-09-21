@@ -1,0 +1,32 @@
+$primary: #082e53;
+$secondary: #fcdc04;
+$third: #d4d4d4;
+$white: #ffffff;
+$black: #000000;
+$text: #4c4b4b;
+$background: #f5f6fa;
+
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+  third: $third,
+  white: $white,
+  black: $black,
+  text: $text,
+  background: $background,
+);
+
+
+@mixin generate-color-classes {
+  @each $color-name, $color in $colors {
+    .bg-#{$color-name} {
+      background-color: $color;
+    }
+    .text-#{$color-name} {
+      color: $color;
+    }
+  }
+}
+
+
+@include generate-color-classes;

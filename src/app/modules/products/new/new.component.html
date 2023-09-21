@@ -1,0 +1,18 @@
+<div class="product--new">
+
+
+    <div class="product--new__navbar">
+        <a class="text-text  text-bold" [href]="returnToBack">
+            <img src="assets/images/arrow-left.svg" alt="close" />
+            Cancel
+          </a>
+    </div>
+
+    <div class="product--new__content bg-white">
+
+        <h1 class="title">{{title}}</h1>
+        <codevs-form [schema]="schemaForm" (onSubmit)="saveProduct($event)"></codevs-form>
+
+    </div>
+  
+</div>
