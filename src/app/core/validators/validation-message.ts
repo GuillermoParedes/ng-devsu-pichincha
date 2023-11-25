@@ -4,6 +4,8 @@ import { FormControl, ValidationErrors } from '@angular/forms';
 const validateMessages: ValidationErrors = {
     idExists: 'You can not repeat ID',
     required: 'The field is required',
+    min: ({ min }: { min: number }) => `The field needs min value of ${min}`,
+    max: ({ max }: { max: number }) => `The field needs max value of ${max}`,
     minlength: ({ requiredLength }: { requiredLength: number }) => `The field needs min length of ${requiredLength} character(s)`,
     maxlength: ({ requiredLength }: { requiredLength: number }) => `The field needs max length og ${requiredLength} character(s)`,
     noDateInFuture: 'Fecha no puede ser antes de hoy',
@@ -16,6 +18,7 @@ const validateMessages: ValidationErrors = {
     let messages: string = '';
   
     errorKeys.forEach((errorName: string) => {
+      console.log('error', errorName)
       const validationMessage = validateMessages[errorName];
       if (typeof validationMessage === 'function') {
         messages = validationMessage(error[errorName]);

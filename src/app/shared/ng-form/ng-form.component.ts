@@ -40,9 +40,15 @@ export class NgFormComponent implements OnInit {
     const validation: any = [];
 
     inputElement.validations.forEach((element: any) => {
-      
+        console.log('element', element)
       if(element.required) {
         validation.push(Validators.required)
+      }
+      if(element.min) {
+        validation.push(Validators.min(element.min))
+      }
+      if(element.max) {
+        validation.push(Validators.max(element.max))
       }
       if(element.minLength && element.minLength > 0) {
         validation.push(Validators.minLength(element.minLength))

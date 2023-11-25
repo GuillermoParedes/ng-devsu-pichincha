@@ -17,24 +17,23 @@ export class NewComponent implements OnInit {
   constructor(private readonly idValidator: IdValidator, private readonly service: ProductService, private readonly router: Router) {}
 
   ngOnInit(): void {
-    this.schemaForm = this.schemaForm.map((item: any) => {
+    // this.schemaForm = this.schemaForm.map((item: any) => {
 
-      if(item.property == 'id') {
-        item.customValidation = this.idValidator;
-      }
+    //   if(item.property == 'id') {
+    //     item.customValidation = this.idValidator;
+    //   }
 
-      return item;
-    })
+    //   return item;
+    // })
   }
 
   saveProduct(data: any) {
-    console.log('saveProduct', data)
-    this.service.save({...data,
-      date_release: data.dateRelease,
-      date_revision: data.dateRevision,
-    }).subscribe(response => {
-      console.log('response', response)
-      this.router.navigate(['/']);
-    })
+    // this.service.save({...data,
+    //   date_release: data.dateRelease,
+    //   date_revision: data.dateRevision,
+    // }).subscribe(response => {
+    //   console.log('response', response)
+    //   this.router.navigate(['/']);
+    // })
   }
 }
