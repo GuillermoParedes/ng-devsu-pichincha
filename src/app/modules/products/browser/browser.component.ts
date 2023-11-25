@@ -38,11 +38,6 @@ export class BrowserComponent implements OnInit {
       property: 'date_revision',
       type: 'date',
     },
-    {
-      label: 'Actions',
-      property: 'custom',
-      type: 'text',
-    },
   ];
 
   data: any = []

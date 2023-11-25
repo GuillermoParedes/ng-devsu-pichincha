@@ -43,7 +43,7 @@ export const SchemaProduct = [
       validations: [
         {
           required: true,
-          // regEx: /\.(jpeg|jpg|gif|png|bmp|svg|webp)$/i
+          regEx: /\.(jpeg|jpg|gif|png|bmp|svg|webp)$/i
         },
       ],
     },
